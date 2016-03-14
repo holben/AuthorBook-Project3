@@ -18,6 +18,14 @@ int Book::getpages() { return pages; }
 Author Book::getauthor() { return A; }
 std::string Book::gettitle() { return title; }
 
+std::ifstream Author::readdata(std::string filename)
+{
+	
+};
+std::ofstream Author::writedata(std::string filename)
+{
+
+};
 Book::~Book()
 {
 }

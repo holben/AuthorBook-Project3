@@ -17,6 +17,11 @@ void DisplayBooks(vector<Book> books)
 		
 	}
 };
+void openFile(std::ifstream obj, std::string filename)
+{
+	obj.open(filename);
+}
+
 
 int main()
 {

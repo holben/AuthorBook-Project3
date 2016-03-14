@@ -17,5 +17,9 @@ public:
 	double getprice();
 	Author getauthor();
 	std::string gettitle();
+
+	std::ifstream readdata(std::string filename);
+	std::ofstream writedata(std::string filename);
+
 	~Book();
 };
