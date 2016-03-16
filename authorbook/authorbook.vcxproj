@@ -149,6 +149,7 @@
     <ClInclude Include="Author.h" />
     <ClInclude Include="authorbook.h" />
     <ClInclude Include="Book.h" />
+    <ClInclude Include="Exception.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -156,6 +157,7 @@
     <ClCompile Include="Author.cpp" />
     <ClCompile Include="authorbook.cpp" />
     <ClCompile Include="Book.cpp" />
+    <ClCompile Include="Exception.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
