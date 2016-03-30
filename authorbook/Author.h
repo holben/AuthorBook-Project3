@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <fstream>
+#include "Exception.h"
 class Author
 {
 private:
@@ -11,8 +12,8 @@ public:
 	Author(std::string name, std::string address);
 	std::string getname();
 	std::string getaddress();
-	std::ifstream readdata(std::string filename);
-	std::ofstream writedata(std::string filename);
+	void readdata(std::ifstream &filename);
+	void writedata(std::ofstream &filename);
 	~Author();
 };
 

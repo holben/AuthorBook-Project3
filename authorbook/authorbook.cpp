@@ -10,7 +10,7 @@
 // Implementation file for main
 // =======================================
 #include "authorbook.h"
-
+#include "Exception.h"
 int main()
 {
 	// Display Menu 
@@ -102,20 +102,34 @@ void createTestFile()
 
 void readTestFile()
 {
-	vector<Book> books;
+	vector<Book> myBooks;
 	ifstream obj;
-	try {
+	try
+	{
 		openFile(obj, "bookData.txt");
 	}
-	catch (Exception e)
+	catch (Exception Not_Open)
 	{
-		cout << "Error, File didn't open. Passed not_open error code: " << not_open;
-	};
+		cout << endl << Not_Open.getdescription;
+	}
+	//loop
+	Book p1;
+	p1.readdata(obj);
+
+
 	// This is code that you must provide
 }
 
 void openFile(ifstream& in, const string& _name)
 {
-	in.open(_name);
+		in.open(_name);
+		if (in.is_open == false)
+		{
+			throw Exception(0, "file didn't open");
+		}
+		else
+		{}
+
+	
 	// This is code that you must provide
 }

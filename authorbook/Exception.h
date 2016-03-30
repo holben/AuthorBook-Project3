@@ -1,13 +1,17 @@
 #pragma once
+#include <string>
 class Exception
 {
 	
+private:
 	int error;
+	std::string description;
+
 public:
-	const int read_error = 11;
-	const int not_open = 22;
-	const int end_file = 33;
-	Exception();
+	
+	Exception(int e, std::string d);
+	std::string getdescription();
+	int geterror();
 	~Exception();
 };
 

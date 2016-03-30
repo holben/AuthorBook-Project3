@@ -18,8 +18,8 @@ public:
 	Author getauthor();
 	std::string gettitle();
 
-	std::ifstream readdata(std::string filename);
-	std::ofstream writedata(std::string filename);
+	void readdata(std::ifstream &filename);
+	void writedata(std::ofstream &filename);
 
 	~Book();
 };

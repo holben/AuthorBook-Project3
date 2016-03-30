@@ -4,6 +4,8 @@
 
 Author::Author()
 {
+	name = "";
+	address = "";
 }
 Author::Author(std::string n, std::string a)
 {
@@ -19,13 +21,33 @@ std::string Author::getaddress()
 {
 	return address;
 }
-std::ifstream Author::readdata(std::string filename)
+void Author::readdata(std::ifstream &filename)
 {
+	if (filename.eof())
+	{
+		throw Exception(0, "End of file reached");
+	}
+	if(filename.fail())
+	{
+		throw Exception(1, "input file has problem");
+	}
 
+	getline(filename, name);
+	getline(filename, address);
+
+	if (filename.eof())
+	{
+		throw Exception(0, "End of file reached");
+	}
+	if (filename.fail())
+	{
+		throw Exception(1, "unknown error with reading data");
+	}
 };
-std::ofstream Author::writedata(std::string filename)
+void Author::writedata(std::ofstream &filename)
 {
-
+	filename << name << std::endl;
+	filename << address << std::endl;
 };
 Author::~Author()
 {
