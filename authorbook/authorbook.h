@@ -5,14 +5,7 @@
 // Date last modified: October 2015
 // Header file for main - constants and function prologues
 // =================================================
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include "Author.h"
-#include "Book.h"
-#include "Exception.h"
-using namespace std;
+
 
 
 // The displayBooks function

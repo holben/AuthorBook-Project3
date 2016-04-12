@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Book.h"
 
-
 Book::Book()
 {
 }
@@ -28,7 +27,7 @@ void Book::readdata(std::ifstream &filename)
 	{
 		throw Exception(1, "input file has problem");
 	}
-
+	getline(filename, A.)
 	getline(filename, title);
 	filename >> pages;
 	filename >> price;
@@ -40,7 +39,7 @@ void Book::readdata(std::ifstream &filename)
 	}
 	else if (filename.fail())
 	{
-		throw Exception(1, "unknown error with reading data");
+		throw Exception(1, "File failed to read.");
 	}
 	else if (filename.eof() && filename.fail())
 	{
@@ -49,6 +48,8 @@ void Book::readdata(std::ifstream &filename)
 };
 void Book::writedata(std::ofstream &filename)
 {
+	filename << A.getname() << std::endl;
+	filename << A.getaddress() << std::endl;
 	filename << title << std::endl;
 	filename << pages << std::endl;
 	filename << price << std::endl;

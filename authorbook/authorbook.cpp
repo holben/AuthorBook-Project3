@@ -9,41 +9,19 @@
 // Date last modified: October 2015
 // Implementation file for main
 // =======================================
-#include "authorbook.h"
+
+# include "stdafx.h"
+#include <fstream>
+#include <string>
+#include <vector>
+#include "Author.h"
+#include "Book.h"
 #include "Exception.h"
-int main()
-{
-	// Display Menu 
-	int option = 0;
-	const int CREATE = 1;
-	const int READ = 2;
+# include "stdafx.h"
+# include <iostream>
 
-	cout << "\nCS 1410 Project 3";
-	cout << "\nSelect one of the following two options: ";
-	cout << "\n   1 - create a test file";
-	cout << "\n   2 - read the test file and display the results";
-	cout << "\n>> ";
 
-	// run the selected option
-	cin >> option;
-	if (option == CREATE)
-	{
-		createTestFile();
-		cout << "\nTest file has been created.";
-	}
-	else if (option == READ)
-	{
-		readTestFile();
-	}
-	else
-	{
-		cout << "\nInvalid option.";
-	}
-
-	system("PAUSE");
-	return 0;
-}
-
+using namespace std;
 void displayBooks(vector<Book> books)
 {
 	// set up cout to display currency
@@ -100,6 +78,21 @@ void createTestFile()
 	}
 }
 
+void openFile(ifstream& in, const string& _name)
+{
+	in.open(_name);
+	if (in.is_open() == false)
+	{
+		throw Exception(0, "file didn't open");
+	}
+	else
+	{
+	}
+
+
+	// This is code that you must provide
+}
+
 void readTestFile()
 {
 	vector<Book> myBooks;
@@ -110,26 +103,60 @@ void readTestFile()
 	}
 	catch (Exception Not_Open)
 	{
-		cout << endl << Not_Open.getdescription;
+		cout << endl << Not_Open.getdescription();
 	}
 	//loop
-	Book p1;
-	p1.readdata(obj);
-
-
+	bool eof=false;
+	int x = 0;
+	while (eof == false)
+	{
+		Book p1;
+		try
+		{
+			p1.readdata(obj);
+			myBooks.push_back(p1);
+		}
+		catch (Exception Not_Reading)
+		{
+			cout << endl << Not_Reading.getdescription();
+			eof = true;
+		}
+		
+		
+	}
+	displayBooks(myBooks);
 	// This is code that you must provide
 }
 
-void openFile(ifstream& in, const string& _name)
+int main()
 {
-		in.open(_name);
-		if (in.is_open == false)
-		{
-			throw Exception(0, "file didn't open");
-		}
-		else
-		{}
+	// Display Menu 
+	int option = 0;
+	const int CREATE = 1;
+	const int READ = 2;
 
-	
-	// This is code that you must provide
+	cout << "\nCS 1410 Project 3";
+	cout << "\nSelect one of the following two options: ";
+	cout << "\n   1 - create a test file";
+	cout << "\n   2 - read the test file and display the results";
+	cout << "\n>> ";
+
+	// run the selected option
+	cin >> option;
+	if (option == CREATE)
+	{
+		createTestFile();
+		cout << "\nTest file has been created.";
+	}
+	else if (option == READ)
+	{
+		readTestFile();
+	}
+	else
+	{
+		cout << "\nInvalid option.";
+	}
+
+	system("PAUSE");
+	return 0;
 }
